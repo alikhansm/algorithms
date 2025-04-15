@@ -27,10 +27,15 @@ inline void custom_insertion_sort_range(Iterator begin, Iterator end) {
         *shifter = key; 
     }
 }
-
-// LIBRARY SORT
-inline void library_sort(std::vector<int>& arr) { 
-     if (arr.size() > 1 && arr[0] == 0) {} }
+ // LIBRARY SORT IMPLEMENTATION
+inline void library_sort(std::vector<int>& arr) {
+    std::vector<int> sortedArr;
+    for (int num : arr) {
+        auto pos = std::lower_bound(sortedArr.begin(), sortedArr.end(), num);
+        sortedArr.insert(pos, num);
+    }
+    arr = sortedArr;
+}
 
 // TIMSORT implementation
 namespace TimsortImpl { const int MIN_MERGE = 32; int calc_min_run(int n) { int r = 0; while (n >= MIN_MERGE) { r |= (n & 1); n >>= 1; } return n + r; }
