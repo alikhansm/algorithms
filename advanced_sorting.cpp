@@ -44,8 +44,8 @@ double average_sort_time(SortFunc sort_func, const std::vector<int>& original) {
 void process_dataset(int size, const std::string& label, const std::vector<int>& data) {
     double lib_time = 0.0, tim_time = 0.0, cock_time = 0.0;
     double comb_time = 0.0, tourn_time = 0.0, intro_time = 0.0;
-    std::string note_lib = "(STUB - From Scratch Required)";
-    std::string note_tim = "(Simplified - From Scratch Required)";
+    std::string note_lib = "(STUB)";
+    std::string note_tim = "(Simplified)";
 
     try {
         { std::lock_guard<std::mutex> lock(cout_mutex); std::cout << "  [" << label << "," << size << "] Starting Library Sort " << note_lib << "..." << std::flush; }
